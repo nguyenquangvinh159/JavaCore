@@ -1,4 +1,4 @@
-﻿CREATE TABLE TaiKhoan(
+CREATE TABLE TaiKhoan(
     TenDangNhap VARCHAR(50) PRIMARY KEY,
     MatKhau VARCHAR(50),
     VaiTro NVARCHAR(20)
@@ -222,4 +222,156 @@ UPDATE XuatVanBan
 SET MaPhong = 'P102'
 WHERE MaVB = 'VB002';
 
+ALTER TABLE PhongHoc_CSVC
+ADD TinhTrang NVARCHAR(50);
 
+INSERT INTO TaiKhoan (TenDangNhap, MatKhau, VaiTro) VALUES
+('user01', 'pass01', N'NhanVien'),
+('user02', 'pass02', N'NhanVien'),
+('user03', 'pass03', N'NhanVien'),
+('user04', 'pass04', N'NhanVien'),
+('user05', 'pass05', N'NhanVien'),
+('user06', 'pass06', N'NhanVien'),
+('user07', 'pass07', N'NhanVien'),
+('user08', 'pass08', N'NhanVien'),
+('user09', 'pass09', N'NhanVien'),
+('user10', 'pass10', N'NhanVien'),
+('user11', 'pass11', N'NhanVien'),
+('user12', 'pass12', N'NhanVien'),
+('user13', 'pass13', N'NhanVien'),
+('user14', 'pass14', N'NhanVien'),
+('user15', 'pass15', N'NhanVien');
+
+INSERT INTO CoSoVatChat (MaCSVC, TenCSVC, LoaiCSVC, DonViTinh, TinhTrang, SoLuong) VALUES
+('TB005', N'Máy in HP', N'Thiết bị văn phòng', N'Cái', N'Tốt', 5),
+('TB006', N'Máy quét Canon', N'Thiết bị văn phòng', N'Cái', N'Tốt', 3),
+('TB007', N'Bảng trắng', N'Thiết bị giảng dạy', N'Cái', N'Tốt', 10),
+('TB008', N'Micro không dây', N'Thiết bị âm thanh', N'Cái', N'Tốt', 7),
+('TB009', N'Loa JBL', N'Thiết bị âm thanh', N'Cái', N'Tốt', 4),
+('TB010', N'Máy chiếu Epson', N'Thiết bị trình chiếu', N'Cái', N'Tốt', 6),
+('TB011', N'Bàn giáo viên', N'Nội thất', N'Cái', N'Tốt', 2),
+('TB012', N'Ghế giáo viên', N'Nội thất', N'Cái', N'Tốt', 2),
+('TB013', N'Máy lạnh Daikin', N'Thiết bị điện', N'Cái', N'Tốt', 3),
+('TB014', N'Quạt trần', N'Thiết bị điện', N'Cái', N'Tốt', 8),
+('TB015', N'Máy tính xách tay', N'Thiết bị CNTT', N'Cái', N'Tốt', 10),
+('TB016', N'Máy tính bảng', N'Thiết bị CNTT', N'Cái', N'Tốt', 12),
+('TB017', N'Bảng tương tác', N'Thiết bị giảng dạy', N'Cái', N'Tốt', 2),
+('TB018', N'Máy ảnh kỹ thuật số', N'Thiết bị ghi hình', N'Cái', N'Tốt', 3),
+('TB019', N'Máy quay phim', N'Thiết bị ghi hình', N'Cái', N'Tốt', 2);
+
+INSERT INTO PhongHoc (MaPhong, TenPhong, LoaiPhong, SucChua) VALUES
+('P104', N'Phòng Học A1-104', N'Phòng Lý Thuyết', 60),
+('P106', N'Phòng Học A1-106', N'Phòng Thực Hành', 50),
+('P107', N'Phòng Học A1-107', N'Phòng Lý Thuyết', 45),
+('P108', N'Phòng Học A1-108', N'Phòng Máy', 40),
+('P109', N'Phòng Học A1-109', N'Phòng Thực Hành', 50),
+('P110', N'Phòng Học A1-110', N'Phòng Lý Thuyết', 60),
+('P111', N'Phòng Học A1-111', N'Phòng Máy', 40),
+('P112', N'Phòng Học A1-112', N'Phòng Thực Hành', 50),
+('P113', N'Phòng Học A1-113', N'Phòng Lý Thuyết', 45),
+('P114', N'Phòng Học A1-114', N'Phòng Máy', 40),
+('P115', N'Phòng Học A1-115', N'Phòng Thực Hành', 50),
+('P116', N'Phòng Học A1-116', N'Phòng Lý Thuyết', 60),
+('P117', N'Phòng Học A1-117', N'Phòng Máy', 40),
+('P118', N'Phòng Học A1-118', N'Phòng Thực Hành', 50);
+
+INSERT INTO KiemKe(MaKK, NgayKK, NguoiThucHien, GhiChu) VALUES
+('KK003', '2024-06-01', N'Người thực hiện 3', N'Ghi chú KK003'),
+('KK004', '2024-06-02', N'Người thực hiện 4', N'Ghi chú KK004'),
+('KK005', '2024-06-03', N'Người thực hiện 5', N'Ghi chú KK005'),
+('KK006', '2024-06-04', N'Người thực hiện 6', N'Ghi chú KK006'),
+('KK007', '2024-06-05', N'Người thực hiện 7', N'Ghi chú KK007'),
+('KK008', '2024-06-06', N'Người thực hiện 8', N'Ghi chú KK008'),
+('KK009', '2024-06-07', N'Người thực hiện 9', N'Ghi chú KK009'),
+('KK010', '2024-06-08', N'Người thực hiện 10', N'Ghi chú KK010');
+
+INSERT INTO ChiTietKiemKe (MaKK, MaPhong, MaCSVC, SoLuong, TinhTrang) VALUES
+('KK003', 'P104', 'TB005', 2, N'Tốt'),
+('KK003', 'P104', 'TB006', 1, N'Tốt'),
+('KK004', 'P105', 'TB007', 3, N'Tốt'),
+('KK004', 'P105', 'TB008', 2, N'Tốt'),
+('KK005', 'P106', 'TB009', 4, N'Tốt'),
+('KK005', 'P106', 'TB010', 1, N'Tốt'),
+('KK006', 'P107', 'TB011', 2, N'Tốt'),
+('KK006', 'P107', 'TB012', 2, N'Tốt'),
+('KK007', 'P108', 'TB013', 1, N'Tốt'),
+('KK007', 'P108', 'TB014', 2, N'Tốt'),
+('KK008', 'P109', 'TB015', 5, N'Tốt'),
+('KK008', 'P109', 'TB016', 3, N'Tốt'),
+('KK009', 'P110', 'TB017', 1, N'Tốt'),
+('KK009', 'P110', 'TB018', 2, N'Tốt'),
+('KK010', 'P111', 'TB019', 1, N'Tốt');
+
+INSERT INTO BaoTri_SuaChua (MaCSVC, NgayBaoTri, NoiDung, TrangThai) VALUES
+('TB005', '2025-05-10', N'Bảo trì định kỳ', N'Đã hoàn thành'),
+('TB006', '2025-06-15', N'Sửa chữa lỗi phần mềm', N'Đang thực hiện'),
+('TB007', '2025-07-20', N'Thay thế linh kiện', N'Đã hoàn thành'),
+('TB008', '2025-08-25', N'Bảo trì định kỳ', N'Đang thực hiện'),
+('TB009', '2025-09-30', N'Sửa chữa lỗi phần cứng', N'Đã hoàn thành'),
+('TB010', '2025-10-05', N'Thay thế bóng đèn', N'Đang thực hiện');
+ 
+ INSERT INTO XuatVanBan (MaVB, NgayXuat, LoaiVB) VALUES
+('VB003', '2025-01-10', N'Tổng hợp'),
+('VB004', '2025-02-15', N'Xuất kho'),
+('VB005', '2025-03-20', N'Bàn giao'),
+('VB006', '2025-04-01', N'Tổng hợp'),
+('VB007', '2025-04-12', N'Sửa chữa'),
+('VB008', '2025-05-05', N'Kiểm kê'),
+('VB009', '2025-06-01', N'Nhập kho'),
+('VB010', '2025-06-30', N'Tổng hợp'),
+('VB011', '2025-07-10', N'Điều chuyển'),
+('VB012', '2025-08-01', N'Bảo trì'),
+('VB013', '2025-12-20', N'Tổng hợp'),
+('VB014', '2025-09-10', N'Tổng hợp'),
+('VB015', '2025-10-01', N'Sửa chữa');
+
+INSERT INTO XuatVanBan_KiemKe (MaVB, MaKK) VALUES
+('VB001', 'KK001'),
+('VB001', 'KK002'),
+('VB003', 'KK003'),
+('VB006', 'KK004'),
+('VB008', 'KK005'),
+('VB010', 'KK006'),
+('VB014', 'KK007'),
+('VB013', 'KK008'),
+('VB014', 'KK009'),
+('VB008', 'KK010'),
+('VB003', 'KK010'),
+('VB006', 'KK002'),
+('VB014', 'KK005'),
+('VB001', 'KK007'),
+('VB006', 'KK003');
+
+INSERT INTO XuatVanBan_CSVC (MaVB, MaCSVC) VALUES
+('VB002', 'TB001'),
+('VB002', 'TB002'),
+('VB004', 'TB003'),
+('VB005', 'TB004'),
+('VB006', 'TB005'),
+('VB007', 'TB006'),
+('VB008', 'TB007'),
+('VB009', 'TB008'),
+('VB010', 'TB009'),
+('VB011', 'TB010'),
+('VB012', 'TB011'),
+('VB013', 'TB012'),
+('VB014', 'TB013'),
+('VB015', 'TB014'),
+('VB013', 'TB015');
+
+INSERT INTO PhongHoc_CSVC (MaPhong, MaCSVC, SoLuong) VALUES
+('P101', 'TB001', 20),
+('P109', 'TB002', 1),
+('P101', 'TB003', 1),
+('P109', 'TB004', 25),
+('P108', 'TB005', 1),
+('P106', 'TB006', 1),
+('P102', 'TB007', 30),
+('P108', 'TB008', 2),
+('P109', 'TB009', 1),
+('P103', 'TB010', 15),
+('P112', 'TB011', 1),
+('P105', 'TB012', 1),
+('P104', 'TB013', 1),
+('P103', 'TB014', 1),
+('P101', 'TB015', 1);
