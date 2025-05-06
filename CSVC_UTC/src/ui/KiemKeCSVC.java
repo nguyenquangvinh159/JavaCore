@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package ui;
 
 import controller.ThemKiemKeForm;
@@ -20,13 +16,14 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import util.DBConnection;
+import ui.MenuQuanLyForm;
 import view.XuatVanBanKKForm;
 
-public class KiemKeCSVC  extends JFrame{
+public class KiemKeCSVC extends JFrame {
     private JTable table;
     private DefaultTableModel tableModel;
-    private JButton btnThem, btnTaiLai,  btnXoa;
-    
+    private JButton btnThem, btnTaiLai, btnXoa, btnTroVe;
+
     public KiemKeCSVC() {
         setTitle("Quản lý phiếu kiểm kê");
         setSize(800, 400);
@@ -45,19 +42,22 @@ public class KiemKeCSVC  extends JFrame{
         btnThem = new JButton("Thêm phiếu kiểm kê");
         btnTaiLai = new JButton("Tải lại dữ liệu");
         btnXoa = new JButton("Xóa phiếu kiểm kê");
+        btnTroVe = new JButton("Trở về");
 
         buttonPanel.add(btnThem);
         buttonPanel.add(btnTaiLai);
         buttonPanel.add(btnXoa);
+        buttonPanel.add(btnTroVe);
         add(buttonPanel, BorderLayout.SOUTH);
 
         btnThem.addActionListener(e -> {
             new ThemKiemKeForm().setVisible(true);
         });
+
         btnXoa.addActionListener(e -> xoaPhieuKiemKe());
         btnTaiLai.addActionListener(e -> loadData());
+
         JButton btnXuatFile = new JButton("Xuất file");
-        
         btnXuatFile.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -70,9 +70,16 @@ public class KiemKeCSVC  extends JFrame{
                 new XuatVanBanKKForm(maKK).setVisible(true);
             }
         });
-        
+        buttonPanel.add(btnXuatFile);
+
+        btnTroVe.addActionListener(e -> {
+            dispose(); // Đóng cửa sổ hiện tại
+            new MenuQuanLyForm().setVisible(true); // Mở menu chính
+        });
+
         loadData();
     }
+
     private void loadData() {
         try {
             Connection conn = DBConnection.getConnection();
@@ -80,7 +87,7 @@ public class KiemKeCSVC  extends JFrame{
             PreparedStatement stmt = conn.prepareStatement(sql);
             ResultSet rs = stmt.executeQuery();
 
-            tableModel.setRowCount(0); // clear existing data
+            tableModel.setRowCount(0); // Xóa dữ liệu cũ
             while (rs.next()) {
                 Vector<Object> row = new Vector<>();
                 row.add(rs.getString("MaKK"));
@@ -97,6 +104,7 @@ public class KiemKeCSVC  extends JFrame{
             JOptionPane.showMessageDialog(this, "Lỗi khi tải dữ liệu: " + e.getMessage());
         }
     }
+
     private void xoaPhieuKiemKe() {
         int row = table.getSelectedRow();
         if (row == -1) {
