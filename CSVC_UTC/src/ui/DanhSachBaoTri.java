@@ -58,14 +58,10 @@ public class DanhSachBaoTri extends JFrame {
 			}
 		});
 
-        JButton btnLamMoi = new JButton("Làm mới");
+        JButton btnLamMoi = new JButton("Trở về");
         btnLamMoi.addActionListener(e -> {
-			try {
-				loadData();
-			} catch (Exception e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
-			}
+        	this.dispose();
+            new MenuQuanLyForm().setVisible(true);
 		});
 
         txtSearch = new JTextField(20);
